@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="ru">
+        <head>
+            <meta charset="UTF-8">
+            <title>Вихоревка | Сердце Сибири</title>
+            <link rel="stylesheet" href="style.css">
+            <link rel="stylesheet" href="https://cloudflare.com"/>
+            <link rel="stylesheet" href="https://unpkg.com" />
+        </head>
+        <body>
+            <nav>
+                <div class="container nav-box" style="padding:0 20px">
+                    <div class="nav-links">
+                        <a href="index.html">Главная</a>
+                        <a href="history.html">История</a>
+                        <a href="gallery.html">Галерея</a>
+                    </div>
+                    <button id="theme-btn">🌙 Тьма</button>
+                </div>
+            </nav>
+            
+            <section class="hero" data-aos="fade-in">
+                <div class="hero-inner">
+                    <h1 class="animate__animated animate__backInDown">Вихоревка</h1>
+                    <p class="animate__animated animate__fadeInUp animate__delay-1s">Город железных дорог и бескрайней тайги</p>
+                    <div class="hero-btns animate__animated animate__fadeInUp animate__delay-2s">
+                        <a href="history.html" class="btn-glass">Открыть историю</a>
+                        <a href="gallery.html" class="btn-glass secondary">Галерея</a>
+                    </div>
+                </div>
+            </section>
+            <div class="container">
+                <div class="glass-card" data-aos="fade-up">
+                    <h2>Добро пожаловать</h2>
+                    <p>Вихоревка — это уникальное сочетание индустриальной мощи и суровой северной красоты. Основанный как ключевой узел БАМа, город продолжает жить в ритме стука колес и шелеста сосен.</p>
+                    <img src="https://s14.stc.yc.kpcdn.net/share/i/12/14027758/wr-960.webp" class="rounded-img">
+                </div>
+            </div>
+        
+            <script src="https://unpkg.com"></script>
+            <script>
+const btn = document.getElementById('theme-btn');
+const body = document.documentElement;
+
+btn.onclick = () => {
+    const isDark = body.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
+    body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    btn.innerHTML = newTheme === 'dark' ? '☀️ Свет' : '🌙 Тьма';
+};
+
+// Загрузка темы
+const saved = localStorage.getItem('theme') || 'light';
+body.setAttribute('data-theme', saved);
+btn.innerHTML = saved === 'dark' ? '☀️ Свет' : '🌙 Тьма';
+
+// Инициализация AOS (анимация при скролле)
+AOS.init({ duration: 1000, once: true });
+</script>
+        </body>
+        </html>
+        
